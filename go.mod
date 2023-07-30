@@ -2,4 +2,4 @@ module github.com/blck-snwmn/gowasi
 
 go 1.21
 
-require github.com/tetratelabs/wazero v1.3.0
+require github.com/tetratelabs/wazero v1.3.1
