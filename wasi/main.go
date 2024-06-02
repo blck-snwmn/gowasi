@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 )
 
 func main() {
@@ -13,5 +14,5 @@ func main() {
 	flag.IntVar(&r, "r", 0, "right")
 	flag.Parse()
 
-	println(l + r)
+	fmt.Println(l + r)
 }
