@@ -19,7 +19,11 @@ var wasm []byte
 func main() {
 	ctx := context.Background()
 	r := wazero.NewRuntime(ctx)
-	defer r.Close(ctx)
+	defer func() {
+		if err := r.Close(ctx); err != nil {
+			log.Printf("failed to close runtime: %v", err)
+		}
+	}()
 
 	cfg := wazero.NewModuleConfig().WithStdout(os.Stdout).WithStderr(os.Stderr)
 

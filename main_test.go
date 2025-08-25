@@ -13,7 +13,11 @@ import (
 func TestDo(t *testing.T) {
 	ctx := context.Background()
 	r := wazero.NewRuntime(ctx)
-	defer r.Close(ctx)
+	defer func() {
+		if err := r.Close(ctx); err != nil {
+			t.Logf("failed to close runtime: %v", err)
+		}
+	}()
 
 	stdout := bytes.NewBuffer(nil)
 	stderr := bytes.NewBuffer(nil)
