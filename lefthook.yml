@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.go"
+      run: golangci-lint run --enable gosec
+    build-wasm:
+      glob: "*.go"
+      run: GOOS=wasip1 GOARCH=wasm go build -o /tmp/gowasi-main.wasm wasi/main.go
+    test:
+      glob: "*.go"
+      run: go test -v ./...
