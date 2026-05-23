@@ -5,6 +5,23 @@ A simple WebAssembly (WASI) example using Go and Wazero runtime.
 ## Requirements
 
 - Go 1.25.0 or later
+- aqua
+
+## Development
+
+Install development tools with aqua:
+
+```bash
+aqua i
+```
+
+Install lefthook:
+
+```bash
+lefthook install
+```
+
+lefthook runs `golangci-lint run --enable gosec`, a WASI build check, and `go test -v ./...` before commit.
 
 ## Build
 
@@ -21,4 +38,3 @@ Execute the WASI module with Wazero:
 ```bash
 go run main.go
 ```
-
