@@ -12,11 +12,11 @@ jobs:
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
           go-version-file: ./go.mod
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9
+      - uses: aquaproj/aqua-installer@11dd79b4e498d471a9385aa9fb7f62bb5f52a73c # v4.0.4
         with:
-          version: v2.11.4
-          args: --enable gosec
+          aqua_version: v2.57.2
+      - name: golangci-lint
+        run: golangci-lint run --enable=gosec
   test:
     runs-on: ubuntu-latest
     steps:
